@@ -280,6 +280,7 @@ def main(args):
 	print "Press any key to close the image\n"
 	showImg(0)	#	For the user to see the final image
 
+	# Uncomment below line during video record
 	# out.release
 
 if __name__ == "__main__":
