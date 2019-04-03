@@ -24,11 +24,11 @@ For a map size of 250x150, this algorithm has an obstacle space with res = 1, cl
 ![Obstacle Space](https://github.com/RachithP/motion-planning/blob/master/Dijkstra/obstacleSpace.png)
 
 Sample run:
-![simulation](https://github.com/RachithP/motion-planning/blob/master/Dijkstra/dijkstra.gif)
-
-Sample run:
 'python Dijkstra.py --radius 5 --res 1 --startx 50 --starty 139 --endx 200 --endy 30 --clc 5'
 produces an output as shown below:
+![simulation](https://github.com/RachithP/motion-planning/blob/master/Dijkstra/dijkstra.gif)
+
+Output Image:
 ![Sample output](https://github.com/RachithP/motion-planning/blob/master/Dijkstra/sample_output.png)
 
 
