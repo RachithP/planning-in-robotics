@@ -72,9 +72,11 @@ def showImg(waitKey):
 
 	imgrot = np.rot90(displayImg,1)
 	dispImg = cv2.resize(imgrot,(1000,600), interpolation = cv2.INTER_AREA)
-
+	cv2.namedWindow('image')
+	cv2.moveWindow('image', 40,30)
 	cv2.imshow('image',dispImg)
 	cv2.waitKey(waitKey)
+	# out.write(dispImg.astype(np.uint8))	# uncomment to make a video
 
 # for marking the pixels based on ID provided
 def markImg(point, iD):
@@ -251,6 +253,12 @@ def main(args):
 		else:
 			print 'End point is not a valid point. It is outside the workspace. Please enter another point.\n'
 		quit()
+
+	## Uncomment to record video
+	## Define the codec and create VideoWriter object
+	# global out
+	# fourcc = cv2.VideoWriter_fourcc(*'XVID')
+	# out = cv2.VideoWriter('dijkstra.avi',fourcc, 30.0, (1000,600))
 
 	global displayImg
 	displayImg = np.full((xUnits, yUnits, 3), 255.0)
