@@ -134,9 +134,9 @@ def dijkstra(startPoint, endPoint, resolution, xUnits, yUnits):
 
 	#	Values for starting point
 	gcost[startPoint[0] ,startPoint[1]] = 0					#	Setting distance of starting point as zero
-	visitedFlag[startPoint[0], startPoint[1]] = 1			#	Marking starting node as visited
-	push(priorityQ, 0, startPoint)							#	Pushing starting point to the priority queue
-	exploredNodes.append(startPoint)						#	Making a note of explore nodes in order of exploration
+	visitedFlag[startPoint[0], startPoint[1]] = 1				#	Marking starting node as visited
+	push(priorityQ, 0, startPoint)						#	Pushing starting point to the priority queue
+	exploredNodes.append(startPoint)					#	Making a note of explore nodes in order of exploration
 	goalFlag = False
 
 	while not isEmpty(priorityQ):
@@ -208,19 +208,19 @@ def dijkstra(startPoint, endPoint, resolution, xUnits, yUnits):
 		markImg(node, 4)
 
 	print 'Number of explored nodes in configuration space: ', len(exploredNodes)
-	print 'Cost to reach destination in configuration space: ', resolution * gcost[endPoint[0], endPoint[1]], 'mm'
+	print 'Cost to reach destination in work space: ', resolution * gcost[endPoint[0], endPoint[1]], 'mm'
 
 def main(args):
 
 	# Parse Command Line arguments
 	Parser = argparse.ArgumentParser()
-	Parser.add_argument('--radius', default=5.0, help='radius of the circular robot, Default: 5.0mm')
-	Parser.add_argument('--res', default=1.0, help='resolution of the map, Default: 1')
-	Parser.add_argument('--clc', default=0.0, help='clearance of the map, Default: 0')
-	Parser.add_argument('--startx', default=0.0, help='x coordinate of start point, Default: 0')
-	Parser.add_argument('--starty', default=0.0, help='y coordinate of start point, Default: 250')
-	Parser.add_argument('--endx', default=250.0, help='x coordinate of end point, Default: 0')
-	Parser.add_argument('--endy', default=150.0, help='y coordinate of end point, Default: 150')
+	Parser.add_argument('--radius', default = 5.0, help = 'radius of the circular robot, Default: 5.0mm')
+	Parser.add_argument('--res', default = 1.0, help = 'resolution of the map, Default: 1')
+	Parser.add_argument('--clc', default = 0.0, help = 'clearance of the map, Default: 0')
+	Parser.add_argument('--startx', default = 0.0, help = 'x coordinate of start point, Default: 0')
+	Parser.add_argument('--starty', default = 0.0, help = 'y coordinate of start point, Default: 250')
+	Parser.add_argument('--endx', default = 250.0, help = 'x coordinate of end point, Default: 0')
+	Parser.add_argument('--endy', default = 150.0, help = 'y coordinate of end point, Default: 150')
 	
 	Args = Parser.parse_args()
 	
@@ -270,8 +270,7 @@ def main(args):
 	markImg(redStartPoint, 1)
 	markImg(redEndPoint, 2)
 	
-	#	A-Star algorithm in the configuration space
-	# aStar(redStartPoint, redEndPoint, resolution, xUnits, yUnits)
+	#	Dijkstra algorithm in the configuration space
 	dijkstra(redStartPoint, redEndPoint, resolution, xUnits, yUnits)
 
 	markImg(redStartPoint, 1)
