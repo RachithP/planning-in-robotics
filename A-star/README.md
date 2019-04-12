@@ -4,7 +4,7 @@
 
 To see how A-star algorithm works, run the python file as 'python2 Astar.py'
 
-Default values are taken if none provided. They can be seen using help. If you type 'python Astar.py --help', you will see the following:
+Default values are taken if none provided. They can be seen using help. If you type ```python Astar.py --help```, you will see the following:
 
 ```python
 usage: Astar.py [-h] [--radius RADIUS] [--res RES] [--clc CLC]
@@ -25,7 +25,7 @@ For a map size of 250x150, this algorithm has an obstacle space with res = 1, cl
 ![Obstacle Space](https://github.com/RachithP/motion-planning/blob/master/A-star/obstacleSpace.png)
 
 Sample run:
-'python Astar.py --radius 5 --res 1 --startx 50 --starty 139 --endx 200 --endy 30 --clc 5'
+```python Astar.py --radius 5 --res 1 --startx 50 --starty 139 --endx 200 --endy 30 --clc 5```
 produces an output as shown below:
 ![simulation](https://github.com/RachithP/motion-planning/blob/master/A-star/astar.gif)
 
