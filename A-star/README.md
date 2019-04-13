@@ -2,7 +2,7 @@
 
 # A-star:
 
-To see how A-star algorithm works, run the python file as 'python2 Astar.py'
+To see how A-star algorithm works, run the python file as ```python2 Astar.py```
 
 Default values are taken if none provided. They can be seen using help. If you type ```python Astar.py --help```, you will see the following:
 
