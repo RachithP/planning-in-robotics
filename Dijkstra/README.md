@@ -2,7 +2,7 @@
 
 ## Dijkstra:
 
-To see how Dijkstra algorithm works, run the python file as 'python2 Dijkstra.py'
+To see how Dijkstra algorithm works, run the python file as ```python2 Dijkstra.py```
 
 Default values are taken if none provided. They can be seen using help. If you type ```python Dijkstra.py --help```, you will see the following:
 
