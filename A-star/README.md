@@ -9,17 +9,17 @@ Default values are taken if none provided. They can be seen using help. If you t
 ```python
 usage: Astar.py [-h] [--radius RADIUS] [--res RES] [--clc CLC]
                 [--startx STARTX] [--starty STARTY] [--endx ENDX]
-                [--endy ENDY]<br />
+                [--endy ENDY]
 
 optional arguments:
   -h, --help       show this help message and exit
-  --radius RADIUS  radius of the circular robot, Default: 5.0mm
+  --radius RADIUS  radius of the circular robot, Default: 5.0
   --res RES        resolution of the map, Default: 1
   --clc CLC        clearance of the map, Default: 0
   --startx STARTX  x coordinate of start point, Default: 0
   --starty STARTY  y coordinate of start point, Default: 250
   --endx ENDX      x coordinate of end point, Default: 0
-  --endy ENDY      y coordinate of end point, Default: 150'
+  --endy ENDY      y coordinate of end point, Default: 150
 ```
 For a map size of 250x150, this algorithm has an obstacle space with res = 1, clc = 0, radius = 0 as follows:
 ![Obstacle Space](https://github.com/RachithP/motion-planning/blob/master/A-star/obstacleSpace.png)
