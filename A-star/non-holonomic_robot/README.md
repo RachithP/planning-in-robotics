@@ -1,6 +1,6 @@
-# A-star algorithm implementation on differential drive robot for motion planning along with GUI for visualization.
+## A-star on differential drive robot
 
-# A-star:
+# A-star algorithm implementation on turtlebot3-waffle for motion planning along with GUI for visualization.
 
 For a differential drive robot like turtlebot, this implementation takes into account different wheel velocities for the 2 wheels and based on that 8 action sets are generated. The action sets are as follows:
 
