@@ -1,6 +1,6 @@
-# A-star algorithm implementation on differential drive robot for motion planning along with GUI for visualization.
+# A-star on differential drive robot
 
-# A-star:
+## A-star algorithm implementation on turtlebot3-waffle for motion planning along with GUI for visualization.
 
 For a differential drive robot like turtlebot, this implementation takes into account different wheel velocities for the 2 wheels and based on that 8 action sets are generated. The action sets are as follows:
 
@@ -44,5 +44,3 @@ Sample run:
 ```python tb3_astar.py --res 1 --startx 680 --starty 680 --endx 200 --endy 150 --clc 10```
 produces an output as shown below:
 ![simulation](https://github.com/RachithP/motion-planning/blob/master/A-star/non-holonomic_robot/output/astar.gif)
-
-
