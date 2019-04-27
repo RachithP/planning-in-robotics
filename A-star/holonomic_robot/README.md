@@ -22,15 +22,15 @@ optional arguments:
   --endy ENDY      y coordinate of end point, Default: 150
 ```
 For a map size of 250x150, this algorithm has an obstacle space with res = 1, clc = 0, radius = 0 as follows:
-![Obstacle Space](https://github.com/RachithP/motion-planning/blob/master/A-star/obstacleSpace.png)
+![Obstacle Space](https://github.com/RachithP/motion-planning/blob/master/A-star/holonomic_robot/obstacleSpace.png)
 
 Sample run:
 ```python Astar.py --radius 5 --res 1 --startx 50 --starty 139 --endx 200 --endy 30 --clc 5```
 produces an output as shown below:
-![simulation](https://github.com/RachithP/motion-planning/blob/master/A-star/astar.gif)
+![simulation](https://github.com/RachithP/motion-planning/blob/master/A-star/holonomic_robot/astar.gif)
 
 Output Image:
-![Sample output](https://github.com/RachithP/motion-planning/blob/master/A-star/sample_output.png)
+![Sample output](https://github.com/RachithP/motion-planning/blob/master/A-star/holonomic_robot/sample_output.png)
 
 
 ## NOTE
