@@ -1,4 +1,24 @@
-# This is a TSP 2-approx method using Minimal Spanning Tree (MST). The resultant graph is fine-tuned to reduce the cost through Heuristics. Crossed edges are unravelled.
+# This is a TSP 2-approx method using Minimal Spanning Tree (MST). The resultant graph is fine-tuned to reduce the cost through Heuristics - Crossed edges are unravelled.
+
+## Sample output is as shown below;
+### Graph with 51 nodes.
+![51 nodes](https://github.com/RachithP/planning-in-robotics/blob/master/tsp/sample_gifs/eil51_1.gif)
+
+### Graph with 76 nodes.
+### Sample Terminal output
+```
+Number of vertices are 76
+Sum of the MST edges is 472.331
+Initial TSP Tour cost is 742.751
+TSP Tour length after applying heuristic is 657.766
+Time taken to complete is 1.448680 seconds 
+------------------------------------------
+```
+
+![76 nodes](https://github.com/RachithP/planning-in-robotics/blob/master/tsp/sample_gifs/eil76_1.gif)
+
+### Graph with 101 nodes.
+![101 nodes](https://github.com/RachithP/planning-in-robotics/blob/master/tsp/sample_gifs/eil101.gif)
 
 Required:
 1. c++11 standard followed.
