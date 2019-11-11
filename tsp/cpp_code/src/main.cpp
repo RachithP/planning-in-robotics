@@ -16,8 +16,8 @@
 void myCircle( cv::Mat* img, cv::Point center )
 {
   circle( *img,
-      center,
-      2, //radius
+      center*1.5,
+      1, //radius
       cv::Scalar( 0, 0, 255 ),
       cv::FILLED,
       cv::LINE_8 );
@@ -27,10 +27,10 @@ void myCircle( cv::Mat* img, cv::Point center )
 void myLine( cv::Mat* img, cv::Point start, cv::Point end )
 {
   line( *img,
-    start,
-    end,
+    start*1.5,
+    end*1.5,
     cv::Scalar( 255, 255, 255 ),
-    1,
+    0.5,
     cv::LINE_8 );
 }
 
@@ -244,9 +244,12 @@ double getTourLength(std::vector<vertex::Vertex*>* tour, costmap::Matrix* weight
 /* This is for drawing graphs with nodes and edges */
 void drawGraph(std::vector<vertex::Vertex*>* tour, int dimension)
 {
-	cv::Mat disp_image = cv::Mat::zeros( 2*dimension, 2*dimension, CV_8UC3 );		// Image to draw graph on
+	cv::Mat disp_image = cv::Mat::zeros( 200, 200, CV_8UC3 );		// Image to draw graph on
 	cv::namedWindow("Graph", cv::WINDOW_NORMAL);									// Name the window
-	cv::resizeWindow("Graph", 2*dimension, 2*dimension);							// resize it to a bigger picture
+	cv::moveWindow("Graph", 200, 200);
+	cv::resizeWindow("Graph",1000, 1000);							// resize it to a bigger picture
+
+	cv::Size size(1200, 1200);
 	
 	for ( auto it = tour->begin()+1; it != tour->end(); ++it )
 	{
@@ -258,6 +261,7 @@ void drawGraph(std::vector<vertex::Vertex*>* tour, int dimension)
 		}
 		myLine(&disp_image, cv::Point((*(it-1))->getXcoordinate(), (*(it-1))->getYcoordinate()), cv::Point((*it)->getXcoordinate(), (*it)->getYcoordinate()));
 	}
+	cv::resize(disp_image, disp_image, size, CV_INTER_AREA);
 	cv::imshow("Graph", disp_image);
 }
 
@@ -360,10 +364,14 @@ void applyHeuristic( std::vector<vertex::Vertex*>* tour )
 			{
 				if ( checkEdgeCrossing( *(it), *(it+1), *(jt), *(jt+1) ) ){
 					std::reverse( it+1, jt+1 );		// reverse this part of the tour
+					drawGraph(tour, 200);
+					cv::waitKey(1000);
 				}
 			}
 		}
 	}
+	cv::waitKey(0);
+	cv::destroyAllWindows();
 }
 
 /* main code that decides when to call which function */
