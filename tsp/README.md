@@ -1,6 +1,4 @@
-Notes:-
-
-YOU NEED A LINUX SYSTEM TO RUN THIS CODE!!
+# This is a TSP 2-approx method using Minimal Spanning Tree (MST). The resultant graph is fine-tuned to reduce the cost through Heuristics. Crossed edges are unravelled.
 
 Required:
 1. c++11 standard followed.
