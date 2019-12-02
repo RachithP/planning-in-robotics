@@ -1,9 +1,9 @@
 //! \file main.cpp
-/*! \mainpage ENPM809Y Group 10
+/*! \mainpage Hola!, Mucho Gusto ;)
  * Micromouse Simulation integrated path finding algorithms.
 */
 
-#include <stdio.h>
+#include <memory>
 #include "./src/LandBasedRobot/landbasedrobot.h"
 #include "./src/LandBasedTracked/landbasedtracked.h"
 #include "./src/LandBasedWheeled/landbasedwheeled.h"
@@ -32,21 +32,16 @@ int main(int argc, char **argv)
 //	fp::LandBasedRobot* wheel_robot = new fp::LandBasedWheeled("Husky", 0, 0);
 	
 	// LandBasedTracked Robot initialization
-	fp::LandBasedRobot* track_robot = new fp::LandBasedTracked("Houston", 0, 0);
+	std::shared_ptr<fp::LandBasedRobot> track_robot = std::make_shared<fp::LandBasedTracked>("Houston", 0, 0);
 	
 	// Create an instance of maze
-	fp::Maze* maze_ptr = new fp::Maze();
-//	maze_ptr->printMaze();
+	std::shared_ptr<fp::Maze> maze_ptr = std::make_shared<fp::Maze>();
 	
 	// Create an instance of Algorithm class
-	fp::Algorithm* bfs_algo = new fp::DIJKSTRAlgorithm(maze_ptr);
+	std::unique_ptr<fp::Algorithm> bfs_algo = std::make_unique<fp::DIJKSTRAlgorithm>(maze_ptr);
 
 	// Call solve from Algorithm to start solving
 	bfs_algo->solve(maze_ptr, track_robot);	
 	
-	
-	delete bfs_algo;
-	delete maze_ptr;
-	delete track_robot;
 	return 0;
 }

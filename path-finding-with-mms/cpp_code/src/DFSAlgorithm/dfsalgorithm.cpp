@@ -3,9 +3,9 @@
 #include "../Direction/direction.h"
 #include <algorithm>
 
-fp::DFSAlgorithm::DFSAlgorithm(fp::Maze* maze_ptr) : fp::Algorithm::Algorithm(maze_ptr) {}
+fp::DFSAlgorithm::DFSAlgorithm(std::shared_ptr<fp::Maze> maze_ptr) : fp::Algorithm::Algorithm(maze_ptr) {}
 
-void fp::DFSAlgorithm::solve(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot)
+void fp::DFSAlgorithm::solve(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot)
 {
 	// Read current location's walls
 	maze_ptr->readWall(wheel_robot->get_x(), wheel_robot->get_y(), wheel_robot->get_direction());
@@ -14,7 +14,7 @@ void fp::DFSAlgorithm::solve(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot
 	while( not maze_ptr->isGoal(wheel_robot->get_x(), wheel_robot->get_y()) ){
 		if( generatePath(maze_ptr, wheel_robot) ){
 //			std::cerr << "Path exists to goal node" << std::endl;
-			printPath();
+//			printPath();
 			colorPath();
 			if( followPath(maze_ptr, wheel_robot) ) std::cerr << "Successfully reached one of the goal cell, Enjoy!!" << std::endl;
 //			else std::cerr << "blockage reached!!" << std::endl;
@@ -26,7 +26,7 @@ void fp::DFSAlgorithm::solve(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot
 	}		
 }
 
-bool fp::DFSAlgorithm::generatePath(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot){
+bool fp::DFSAlgorithm::generatePath(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot){
 	
 	//! Clear any existing path on the mms simulator
 	API::clearAllColor();

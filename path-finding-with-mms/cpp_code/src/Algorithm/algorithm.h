@@ -4,6 +4,7 @@
 #include "../LandBasedRobot/landbasedrobot.h"
 #include "../Direction/direction.h"
 #include <vector>
+#include <memory>
 
 namespace fp
 {
@@ -15,13 +16,13 @@ class Algorithm
 {
 	public:
 		//! Constructor
-		Algorithm(fp::Maze*);
+		Algorithm(std::shared_ptr<fp::Maze> maze_ptr);
 		
 		//! Member functions
-		virtual void solve(fp::Maze*, fp::LandBasedRobot*) = 0;
-		virtual bool generatePath(fp::Maze*, fp::LandBasedRobot*) = 0;
-		bool followPath(fp::Maze*, fp::LandBasedRobot*);
-		bool moveRobot(int, int, fp::Maze*, fp::LandBasedRobot*);
+		virtual void solve(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>) = 0;
+		virtual bool generatePath(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>) = 0;
+		bool followPath(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>);
+		bool moveRobot(int, int, std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>);
 		void printPath();
 		void colorPath();
 		

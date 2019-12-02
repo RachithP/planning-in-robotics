@@ -2,13 +2,11 @@
 #include "../API/api.h"
 #include "../Direction/direction.h"
 #include <algorithm>
-#include <memory>
-#include <float.h>
 #include "../MinHeap/minheap.h"
 
-fp::DIJKSTRAlgorithm::DIJKSTRAlgorithm(fp::Maze* maze_ptr) : fp::Algorithm::Algorithm(maze_ptr) {}
+fp::DIJKSTRAlgorithm::DIJKSTRAlgorithm(std::shared_ptr<fp::Maze> maze_ptr) : fp::Algorithm::Algorithm(maze_ptr) {}
 
-void fp::DIJKSTRAlgorithm::solve(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot)
+void fp::DIJKSTRAlgorithm::solve(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot)
 {
 	// Read current location's walls
 	maze_ptr->readWall(wheel_robot->get_x(), wheel_robot->get_y(), wheel_robot->get_direction());
@@ -29,7 +27,7 @@ void fp::DIJKSTRAlgorithm::solve(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_r
 	}		
 }
 
-bool fp::DIJKSTRAlgorithm::generatePath(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot){
+bool fp::DIJKSTRAlgorithm::generatePath(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot){
 	
 	//! Clear any existing path on the mms simulator
 	API::clearAllColor();

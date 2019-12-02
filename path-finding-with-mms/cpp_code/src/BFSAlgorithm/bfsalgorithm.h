@@ -15,11 +15,11 @@ class BFSAlgorithm : public Algorithm
 {
 	public:
 		//! Constructor
-		BFSAlgorithm(fp::Maze* maze_ptr);
+		BFSAlgorithm(std::shared_ptr<fp::Maze> maze_ptr);
 		
 		//! Member functions
-		virtual void solve(fp::Maze*, fp::LandBasedRobot*) override;
-		virtual bool generatePath(fp::Maze*, fp::LandBasedRobot*) override;
+		virtual void solve(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>) override;
+		virtual bool generatePath(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>) override;
 		
 		//!Destructor
 		virtual ~BFSAlgorithm(){}

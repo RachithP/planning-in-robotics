@@ -14,11 +14,11 @@ class DIJKSTRAlgorithm : public Algorithm
 {
 	public:
 		//! Constructor
-		DIJKSTRAlgorithm(fp::Maze*);
+		DIJKSTRAlgorithm(std::shared_ptr<fp::Maze>);
 		
 		//! Member functions
-		virtual void solve(fp::Maze*, fp::LandBasedRobot*) override;
-		virtual bool generatePath(fp::Maze*, fp::LandBasedRobot*) override;
+		virtual void solve(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>) override;
+		virtual bool generatePath(std::shared_ptr<fp::Maze>, std::shared_ptr<fp::LandBasedRobot>) override;
 		unsigned char getKey(int x, int y);
 		int getX(unsigned char);
 		int getY(unsigned char);

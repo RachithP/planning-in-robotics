@@ -1,7 +1,7 @@
 #include "algorithm.h"
 #include "../API/api.h"
 
-fp::Algorithm::Algorithm(fp::Maze* maze_ptr)
+fp::Algorithm::Algorithm(std::shared_ptr<fp::Maze> maze_ptr)
 {
 	API::clearAllColor();
 	API::setColor(0, 0, 'G');
@@ -11,7 +11,7 @@ fp::Algorithm::Algorithm(fp::Maze* maze_ptr)
 	API::setText(0, 0, "S");
 }
 
-bool fp::Algorithm::followPath(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot)
+bool fp::Algorithm::followPath(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot)
 {
 	auto it=path_.begin()+1; //! Starting from robot's next position for execution
 	
@@ -30,7 +30,7 @@ bool fp::Algorithm::followPath(fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_rob
 	return true;
 }
 
-bool fp::Algorithm::moveRobot(int next_x, int next_y, fp::Maze* maze_ptr, fp::LandBasedRobot* wheel_robot)
+bool fp::Algorithm::moveRobot(int next_x, int next_y, std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot)
 {
 	int delta_x = next_x - wheel_robot->get_x(); //find the difference in x values of next cell we need to navigate to and the curr x of the robot
 	int delta_y = next_y - wheel_robot->get_y(); //find the difference in y values of next cell we need to navigate to and the curr y of the robot
