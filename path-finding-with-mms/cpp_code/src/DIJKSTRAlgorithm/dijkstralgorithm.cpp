@@ -1,8 +1,8 @@
 #include "dijkstralgorithm.h"
 #include "../API/api.h"
 #include "../Direction/direction.h"
-#include <algorithm>
 #include "../MinHeap/minheap.h"
+#include <algorithm>
 
 fp::DIJKSTRAlgorithm::DIJKSTRAlgorithm(std::shared_ptr<fp::Maze> maze_ptr) : fp::Algorithm::Algorithm(maze_ptr) {}
 

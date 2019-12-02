@@ -1,54 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="/home/rachith/git/fun-stuff/dp_mms/project.workspace">
-  <int Value="0" Name="m_selectedTab"/>
-  <wxString Value="/home/rachith/git/fun-stuff/dp_mms/project.workspace" Name="m_workspaceName"/>
+<Session Name="/home/rachith/git/planning-in-robotics/path-finding-with-mms/project.workspace">
+  <int Value="4" Name="m_selectedTab"/>
+  <wxString Value="/home/rachith/git/planning-in-robotics/path-finding-with-mms/project.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/main.cpp" Name="FileName"/>
+      <wxString Value="/home/rachith/git/planning-in-robotics/path-finding-with-mms/cpp_code/main.cpp" Name="FileName"/>
+      <int Value="18" Name="FirstVisibleLine"/>
+      <int Value="5" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/rachith/git/planning-in-robotics/path-finding-with-mms/cpp_code/src/Algorithm/algorithm.h" Name="FileName"/>
+      <int Value="6" Name="FirstVisibleLine"/>
+      <int Value="14" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/rachith/git/planning-in-robotics/path-finding-with-mms/cpp_code/src/Algorithm/algorithm.cpp" Name="FileName"/>
+      <int Value="0" Name="FirstVisibleLine"/>
+      <int Value="3" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="/home/rachith/git/planning-in-robotics/path-finding-with-mms/cpp_code/src/DIJKSTRAlgorithm/dijkstralgorithm.h" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
       <int Value="23" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/src/Algorithm/algorithm.h" Name="FileName"/>
-      <int Value="3" Name="FirstVisibleLine"/>
-      <int Value="9" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/src/Algorithm/algorithm.cpp" Name="FileName"/>
-      <int Value="29" Name="FirstVisibleLine"/>
-      <int Value="32" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/src/DIJKSTRAlgorithm/dijkstralgorithm.h" Name="FileName"/>
+      <wxString Value="/home/rachith/git/planning-in-robotics/path-finding-with-mms/cpp_code/src/DIJKSTRAlgorithm/dijkstralgorithm.cpp" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="7" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/src/DIJKSTRAlgorithm/dijkstralgorithm.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="20" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/src/MinHeap/minheap.h" Name="FileName"/>
-      <int Value="3" Name="FirstVisibleLine"/>
-      <int Value="7" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="/home/rachith/git/fun-stuff/dp_mms/cpp_code/src/MinHeap/minheap.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="18" Name="CurrentLine"/>
+      <int Value="6" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
