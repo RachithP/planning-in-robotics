@@ -17,5 +17,5 @@ Here, I've implemented BFS, DFS, Dijkstra in C++ 14 environment interfacing with
 - BFS in action!
 ![BFS](https://github.com/RachithP/planning-in-robotics/blob/master/path-finding-with-mms/output/gifs/bfs.gif)
 
-- DFS in action!
+- DFS in action! This is certainly bad performance! -- *To-Do [iterative deepening]*
 ![DFS](https://github.com/RachithP/planning-in-robotics/blob/master/path-finding-with-mms/output/gifs/dfs.gif)
