@@ -1,5 +1,5 @@
 ## Let's find a path!!
-Here, I've implemented BFS, DFS, Dijkstra in C++ 14 environment interfacing with [mms](https://github.com/mackorone/mms). Do have a look at the animation and then readon if you find this interesting! :) 
+Here, I've implemented BFS, DFS, Dijkstra in C++ 14 environment interfacing with [mms](https://github.com/mackorone/mms). Do have a look at the animation and then read-on if you find this interesting! :) 
 
 ### Requirements to run this repository
 - This implementation uses mms simulator to interact and visualize the robot/mouse movement. To learn more about the mms simulator used, please refer [mms](https://github.com/mackorone/mms).
