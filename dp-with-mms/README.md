@@ -12,10 +12,10 @@ Here, I've implemented BFS, DFS, Dijkstra in C++ 14 environment interfacing with
 
 ### Sample runs
 - Dijkstra Algorithm in action!
-![Dijkstra](https://github.com/RachithP/planning-in-robotics/blob/master/path-finding-with-mms/output/gifs/dijkstra.gif)
+![Dijkstra](https://github.com/RachithP/planning-in-robotics/blob/master/dp-with-mms/output/gifs/dijkstra.gif)
 
 - BFS in action!
-![BFS](https://github.com/RachithP/planning-in-robotics/blob/master/path-finding-with-mms/output/gifs/bfs.gif)
+![BFS](https://github.com/RachithP/planning-in-robotics/blob/master/dp-with-mms/output/gifs/bfs.gif)
 
 - DFS in action! This is certainly bad performance! -- *To-Do [iterative deepening]*
-![DFS](https://github.com/RachithP/planning-in-robotics/blob/master/path-finding-with-mms/output/gifs/dfs.gif)
+![DFS](https://github.com/RachithP/planning-in-robotics/blob/master/dp-with-mms/output/gifs/dfs.gif)
