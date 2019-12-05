@@ -3,9 +3,8 @@
 #include "../Direction/direction.h"
 #include <algorithm>
 
-/** @brief Instance of the class Algorithm
- * @details Clears and Sets color and text to the cells in the simulator
- * by calling the API function
+/** @brief Constructor of the class BFSAlgorithm
+ * @details Calls base class constructor
  * @param maze_ptr pointer to the array of maze representing each cell in the maze
  * @return void
 */
@@ -40,13 +39,19 @@ void fp::BFSAlgorithm::solve(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr
 	}		
 }
 
+/** @brief Generates a path for the robot through the Breadth First Search Algorithm from start point to the goal point
+ * @details Function implements the Breadth First Search Algorithm and estimate an obstacle(wall) free path for the robot movement.
+ * and it returns true when a path is found
+ * @param maze_ptr pointer to the array of maze representing each cell in the maze
+ * @param wheel_robot pointer to the robot
+ * @return bool
+*/
 bool fp::BFSAlgorithm::generatePath(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot){
 	
 	//! Clear any existing path on the mms simulator
-	API::clearAllColor();
-	maze_ptr->colorCenter('G');
-	maze_ptr->textCenter("G");
-	API::setColor(wheel_robot->get_x(), wheel_robot->get_y(), 'G');
+	//API::clearAllColor();
+	maze_ptr->colorCenter('g');
+	//maze_ptr->textCenter("G");
 	
 	//! Clear path is any stored previously
 	path_.clear();

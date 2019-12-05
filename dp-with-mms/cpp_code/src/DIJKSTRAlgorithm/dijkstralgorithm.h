@@ -3,6 +3,7 @@
 #include "../Maze/maze.h"
 #include "../LandBasedRobot/landbasedrobot.h"
 #include "../Algorithm/algorithm.h"
+#include <memory>
 
 namespace fp
 {
@@ -28,7 +29,7 @@ class DIJKSTRAlgorithm : public Algorithm
 		
 	private:
 //		std::map<int, std::map<int, double>> cost2come_;
-		double cost2come_[fp::Maze::WIDTH][fp::Maze::HEIGHT] = {};
+		double cost2come_[16][16] = {};
 };
 }
 

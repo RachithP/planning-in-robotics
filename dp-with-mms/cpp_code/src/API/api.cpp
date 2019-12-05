@@ -1,9 +1,12 @@
+//! \file api.cpp
+
 #include "api.h"
 #include <cstdlib>
 #include <iostream>
 
-/** @brief Function mazeWidth() interacts with mms simulator to query mazeWidth and returns a int format of the returned value
- * @return int mazeWidth as returned from mms simulator
+/** @details mazeWidth function requests maze width from API and returns
+ * maze width information. Response becomes a constant string to verify response was received from API
+ * @return int mazeWidth returns integer with maze width for analysis
  */
 int fp::API::mazeWidth() {
     std::cout << "mazeWidth" << std::endl;
@@ -12,8 +15,9 @@ int fp::API::mazeWidth() {
     return atoi(response.c_str());
 }
 
-/** @brief Function mazeHeight() interacts with mms simulator to query mazeHeight and returns a int format of the returned value
- * @return int mazeHeight as returned from mms simulator
+/** @details mazeHeight function requests maze height from API and returns 
+ * maze height information. Response becomes constant string to verify response was received from API
+ * @return int mazeHeight returns integer with maze height for analysis
  */
 int fp::API::mazeHeight() {
     std::cout << "mazeHeight" << std::endl;
@@ -22,9 +26,9 @@ int fp::API::mazeHeight() {
     return atoi(response.c_str());
 }
 
-/** @brief Function wallFront() interacts with mms simulator to query if a wall is present in front of the mouse. 
- * This takes into account the direction of the mouse.
- * @return bool True if a wall is present else false.
+/** @details wallFront function checks for wall infront of robot based on current heading response becomes a constant string to verify response was received from API
+ * @return API wallFront returns boolean to identify if forward path is clear or blocked.
+ * True is returned if wall is present.
  */
 bool fp::API::wallFront() {
     std::cout << "wallFront" << std::endl;
@@ -33,9 +37,9 @@ bool fp::API::wallFront() {
     return response == "true";
 }
 
-/** @brief Function wallRight() interacts with mms simulator to query if a wall is present to the right of the mouse. 
- * This takes into account the direction of the mouse.
- * @return bool True if a wall is present else false.
+/** @details wallRight function checks for wall to right of robot based on current heading response becomes a constant string to verify response was received from API.
+ * @return API wallRight returns boolean to identify if right path is clear or blocked.
+ * True is returned if wall is present.
  */
 bool fp::API::wallRight() {
     std::cout << "wallRight" << std::endl;
@@ -44,9 +48,9 @@ bool fp::API::wallRight() {
     return response == "true";
 }
 
-/** @brief Function wallLeft() interacts with mms simulator to query if a wall is present to the left of the mouse. 
- * This takes into account the direction of the mouse.
- * @return bool True if a wall is present else false.
+/** @details wallLeft function checks for wall to left of robot based on current heading response becomes a constant string to verify response was received from API.
+ * @return API wallLeft returns boolean to identify if left path is clear or blocked.
+ * True is returned if wall is present.
  */
 bool fp::API::wallLeft() {
     std::cout << "wallLeft" << std::endl;
@@ -55,8 +59,8 @@ bool fp::API::wallLeft() {
     return response == "true";
 }
 
-/** @brief Function moveForward() interacts with mms simulator to send a command to move the robot forward in it's current heading direction.
- * @return void
+/** @details moveForward function moves robot position forward if path is clear response is constant string to verify response was received from API after
+ * action is completed.
  */
 void fp::API::moveForward() {
     std::cout << "moveForward" << std::endl;
@@ -68,8 +72,8 @@ void fp::API::moveForward() {
     }
 }
 
-/** @brief Function turnRight() interacts with mms simulator to send a command to turn the robot 90 deg clockwise direction.
- * @return void
+/** @details turnRight function rotates robot clockwise if rotation is needed response is constant string to verify response was received from API after
+ * action is completed.
  */
 void fp::API::turnRight() {
     std::cout << "turnRight" << std::endl;
@@ -77,8 +81,8 @@ void fp::API::turnRight() {
     std::cin >> ack;
 }
 
-/** @brief Function turnLeft() interacts with mms simulator to send a command to turn the robot 90 deg anti-clockwise direction.
- * @return void
+/** @details turnLeft function rotates robot counter-clockwise if rotation is needed response is constant string to verify response was received from API after
+ * action is completed.
  */
 void fp::API::turnLeft() {
     std::cout << "turnLeft" << std::endl;
@@ -86,81 +90,76 @@ void fp::API::turnLeft() {
     std::cin >> ack;
 }
 
-/** @brief Function setWall() interacts with mms simulator to send a command to set the wall at (x,y) cell in direction specified.
- * @param x x-location of the mouse in the maze
- * @param y y-location of the mouse in the maze
- * @param direction This direction is according to world-coordinates. ie. North means true North(upwards), etc.
- * @return void
+/** @details setWall function sets wall in system memory at the location and direction around
+ * current position
+ * @param x: Current X position
+ * @param y: Current Y position
+ * @param direction: Desired heading
  */
 void fp::API::setWall(int x, int y, char direction) {
     std::cout << "setWall " << x << " " << y << " " << direction << std::endl;
 }
 
-/** @brief Function clearWall() interacts with mms simulator to send a command to clear wall at (x,y) cell in direction specified.
- * @param x x-location of the mouse in the maze
- * @param y y-location of the mouse in the maze
- * @param direction This direction is according to world-coordinates. ie. North means true North(upwards), etc.
- * @return void
+/** @details clearWall function clears wall at specified position.
+ * @param x: Current X position
+ * @param y: Current Y position
+ * @param direction: Desired heading
  */
 void fp::API::clearWall(int x, int y, char direction) {
     std::cout << "clearWall " << x << " " << y << " " << direction << std::endl;
 }
 
-/** @brief Function setColor() interacts with mms simulator to send a command to set a color at (x,y) cell.
- * @param x x-location of the mouse in the maze
- * @param y y-location of the mouse in the maze
- * @param color This is the color that needs to set at the specified location
- * @return void
+/** @details setColor function defines wall color for specified wall position. This can be used to
+ * identify discovered walls during movement.
+ * @param x: Current X position
+ * @param y: Current Y position
+ * @param color: Desired heading
  */
 void fp::API::setColor(int x, int y, char color) {
     std::cout << "setColor " << x << " " << y << " " << color << std::endl;
 }
 
-/** @brief Function clearColor() interacts with mms simulator to send a command to clear color at (x,y) cell.
- * @param x x-location of the mouse in the maze
- * @param y y-location of the mouse in the maze
- * @return void
+/** @details clearColor function removes defined wall color at specific location.
+ * @param x: Current X position
+ * @param y: Current Y position
  */
 void fp::API::clearColor(int x, int y) {
     std::cout << "clearColor " << x << " " << y << std::endl;
 }
 
-/** @brief Function clearAllColor() interacts with mms simulator to send a command to clear color throughout the maze.
- * @return void
+/** @details clearAllColor function removes defined wall color at all locations.
  */
 void fp::API::clearAllColor() {
     std::cout << "clearAllColor" << std::endl;
 }
 
-/** @brief Function setText() interacts with mms simulator to send a command to set a color at (x,y) cell.
- * @param x x-location of the mouse in the maze
- * @param y y-location of the mouse in the maze
- * @param text This is the text that needs to set at the specified location
- * @return void
+/** @details setText function uses API feature to write text at specific x,y cell position.
+ * Can be used to number specific cells or assign weight values if weighted search methods are used.
+ * @param x: x-location
+ * @param y: y-location
+ * @param text: String text to be written in cell position X,Y
  */
 void fp::API::setText(int x, int y, const std::string& text) {
     std::cout << "setText " << x << " " << y << " " << text << std::endl;
 }
 
-/** @brief Function clearText() interacts with mms simulator to send a command to clear text at (x,y) cell.
- * @param x x-location of the mouse in the maze
- * @param y y-location of the mouse in the maze
- * @return void
+/** @details clearText function uses API feature to clear text at specific x,y cell position.
  */
 void fp::API::clearText(int x, int y) {
     std::cout << "clearText " << x << " " << y << std::endl;
 }
 
-/** @brief Function clearAllText() interacts with mms simulator to send a command to clear texts throughout the maze.
- * @return void
+/** @details clearAllText function uses API feature to clear text at all cell position.
  */
 void fp::API::clearAllText() {
     std::cout << "clearAllText" << std::endl;
 }
 
-/** @brief Function wasReset() interacts with mms simulator to send a command to query whether the maze was reset or not in the mms simulator.
- * @return bool True is maze was reset else false
-*/
+/** @details wasReset function uses API feature to reset maze simulator. Can be used
+ * in case of crash to reset path search and restart from beginning.
+ * Function will provide response when process is completed.
+ * @return boolean true if system reset was completed
+ */
 bool fp::API::wasReset() {
     std::cout << "wasReset" << std::endl;
     std::string response;
@@ -168,9 +167,9 @@ bool fp::API::wasReset() {
     return response == "true";
 }
 
-/** @brief Function ackReset() interacts with mms simulator to check if the maze reset was acknoledged by the mms simulator or not.
- * @return void 
-*/
+/** @details ackReset function resets ack response from API. Used for verification when API
+ * functions are completed.
+ */
 void fp::API::ackReset() {
     std::cout << "ackReset" << std::endl;
     std::string ack;

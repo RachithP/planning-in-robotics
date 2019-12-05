@@ -4,13 +4,15 @@
 #include <iostream>
 #include <string>
 
-namespace fp //! fp namespace defined for all classes.
-{
-class LandBasedRobot //! Creating basic Land Based Robot class.
-{
-public: //! Public access of class methods.
+/** @brief fp namespace defined for all classes */
+namespace fp{
 
-    //! Land Based Robot class constructor.
+/** @brief Creating basic Land Based Robot class */
+class LandBasedRobot{
+    
+/** @brief Public access of class methods */
+public:
+
     LandBasedRobot(std::string name = "none",
         int x = 0,
         int y = 0,
@@ -21,53 +23,65 @@ public: //! Public access of class methods.
         double capacity = 0.0,
 		char direction = 'n');
 		
-    //! Accessors or Getters for position and action
-    //! Accessor to get x.
-    int get_x() const{return x_;} //! Returns value for Robot X position.
-    //! Accessor to get y.
-    int get_y() const{return y_;} //! Returns value for Robot Y position.
-    //! Accessor to get name.
-    std::string get_name() const{return name_;} //! Returns name of the Robot.
-	//! Accessor to get speed.
-    double get_speed() const{return speed_;} //! Returns value for Robot speed.
-	//! Accessor to get width.
-    double get_width() const{return width_;} //! Returns value for Robot X width.
-	//! Accessor to get length.
-    double get_length() const{return length_;} //! Returns value for Robot X length.
-	//! Accessor to get height.
-    double get_height() const{return height_;} //! Returns value for Robot X height.
-	//! Accessor to get capacity.
-    double get_capacity() const{return capacity_;} //! Returns value for Robot X capacity.
-	//! Accessor to get direction.
-    char get_direction() const{return direction_;} //! Returns value for Robot X capacity.
+    /** @brief Accessors or Getters for position and action */
+    /** @brief Accessor to get x. @return Value for robot X position */
+    int get_x() const{return x_;}
+    
+    /** @brief Accessor to get y. @return Value for robot Y position */
+    int get_y() const{return y_;}
+    
+    /** @brief Accessor to get name. @return String for robot name */
+    std::string get_name() const{return name_;}
+    
+	/** @brief Accessor to get speed. @return double for current robot speed */
+    double get_speed() const{return speed_;}
+    
+	/** @brief Accessor to get width. @return double for robot chassis width */
+    double get_width() const{return width_;}
+    
+	/** @brief Accessor to get length. @return double for robot chassis length */
+    double get_length() const{return length_;}
+    
+	/** @brief Accessor to get height. @return double for robot chassis height */
+    double get_height() const{return height_;}
+    
+	/** @brief Accessor to get capacity. @return double to get robot payload capacity */
+    double get_capacity() const{return capacity_;}
+    
+	/** @brief Accessor to get direction. @return char for robot heading */
+    char get_direction() const{return direction_;}
 
-    //! Mutators or Setters for position and action.
-    //! Mutator to set x.
-    void set_x(int x){x_ = x;} //! Sets x value to robot attribute for x-maze position.
-    //! Mutator to set y.
-    void set_y(int y){y_ = y;} //! Sets y to robot attribute for y-maze position.
-    //! Mutator to set name string.
-    void set_name(std::string name){name_ = name;} //! Sets name string to robot attribute.
-	//! Mutator to set direction
-	void set_direction(char dir){direction_ = dir;} //! Sets direction of robot.
+    /** @brief Mutators or Setters for position and action */
+    /** @details Mutator to set x. Sets x value to robot attribute for x-maze position */
+    void set_x(int x){x_ = x;}
+    
+    /** @details Mutator to set y. Sets Y value to robot attribute for y-maze position */
+    void set_y(int y){y_ = y;}
+    
+    /** @details Mutator to set name string. Sets name string to robot attribute */
+    void set_name(std::string name){name_ = name;}
 
-    //! Function Prototyping.
-    virtual void MoveForward() = 0;       	//! Move the robot forward in the maze.
-    virtual void TurnLeft() = 0;   			//! Turn Robot 90 deg counter-clockwise direction.
-    virtual void TurnRight() = 0;  			//! Turn Robot 90 deg clockwise direction.
+    /** @brief Function Prototyping for movement */
+    /** MoveForward. Move robot forward in maze
+     *  TurnLeft. Turn robot 90 deg counter-clockwise
+     *  TurnRight. Turn robot 90 deg clockwise
+     */
+    virtual void MoveForward() = 0;
+    virtual void TurnLeft() = 0;
+    virtual void TurnRight() = 0;
 
-    //! Land Based Robot class destructor.
+    /** @brief Land Based Robot class destructor */
     virtual ~LandBasedRobot(){}
 
-protected:             //! Protected access for all robot attributes.
-    std::string name_; //! Name of the Robot.
-    double speed_;     //! Driving speed of the Robot.
-    double width_;     //! Width of the base of the Robot.
-    double length_;    //! Lengh of the base of the Robot.
-    double height_;    //! Height of the base of the Robot.
-    double capacity_;  //! Payload of the arm.
-	int x_;            //! X coordinate of the robot in the maze.
-    int y_;            //! Y coordinate of the robot in the maze.
-	char direction_;   //! Direction that the robot is facing; 'N'(north),'E'(east),'W'(west),'S'(south).
+protected:             
+    std::string name_;
+    double speed_;
+    double width_;
+    double length_;
+    double height_;
+    double capacity_;
+	int x_;
+    int y_;
+	char direction_;
 }; // End of the LandBasedRobot class
 } // End of namespace fp

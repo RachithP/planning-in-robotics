@@ -3,14 +3,27 @@
 #include "../Direction/direction.h"
 #include <algorithm>
 
+/** @brief Constructor of the class DFSAlgorithm
+ * @details Calls base class constructor
+ * @param maze_ptr pointer to the array of maze representing each cell in the maze
+ * @return void
+*/
 fp::DFSAlgorithm::DFSAlgorithm(std::shared_ptr<fp::Maze> maze_ptr) : fp::Algorithm::Algorithm(maze_ptr) {}
 
+/** @brief Sets the wall on the simulator and Generates the path through DFS search algorithm
+ * @details Function sets the wall on the simulator by calling the respective API fucntion and calls the other functions 'generatePath' and 
+ * 'followPath' to generate a path through DFS search algorithm and makes the robot to follow the path in the simulator and prints a Success statememt
+ * when the robot reaches the goal point
+ * @param maze_ptr pointer to the array of maze representing each cell in the maze
+ * @param wheel_robot pointer to the robot
+ * @return void
+*/
 void fp::DFSAlgorithm::solve(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot)
 {
 	// Read current location's walls
 	maze_ptr->readWall(wheel_robot->get_x(), wheel_robot->get_y(), wheel_robot->get_direction());
 	
-	// Generate Path from initial location to destination - BFS
+	// Generate Path from initial location to destination
 	while( not maze_ptr->isGoal(wheel_robot->get_x(), wheel_robot->get_y()) ){
 		if( generatePath(maze_ptr, wheel_robot) ){
 //			std::cerr << "Path exists to goal node" << std::endl;
@@ -26,13 +39,19 @@ void fp::DFSAlgorithm::solve(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr
 	}		
 }
 
+/** @brief Generates a path for the robot through the Depth First Search Algorithm from start point to the goal point
+ * @details Function implements the Depth First Search Algorithm and estimate an obstacle(wall) free path for the robot movement.
+ * and it returns true when a path is found
+ * @param maze_ptr pointer to the array of maze representing each cell in the maze
+ * @param wheel_robot pointer to the robot
+ * @return bool
+*/
 bool fp::DFSAlgorithm::generatePath(std::shared_ptr<fp::Maze> maze_ptr, std::shared_ptr<fp::LandBasedRobot> wheel_robot){
 	
 	//! Clear any existing path on the mms simulator
-	API::clearAllColor();
-	maze_ptr->colorCenter('G');
-	maze_ptr->textCenter("G");
-	API::setColor(wheel_robot->get_x(), wheel_robot->get_y(), 'G');
+//	API::clearAllColor();
+	maze_ptr->colorCenter('g');
+//	maze_ptr->textCenter("G");
 	
 	//! Clear path is any stored previously
 	path_.clear();

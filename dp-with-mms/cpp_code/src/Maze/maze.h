@@ -6,9 +6,9 @@
 
 namespace fp
 {
-/*! \class Maze maze.h "src/Maze/maze.h"
- * \brief Maze class for maze file interpretation and manipulation.
- * \details Maze class interprets provided maze file for analysis.
+/*! @class Maze maze.h "src/Maze/maze.h"
+ * @brief Maze class for maze file interpretation and manipulation.
+ * @details Maze class interprets provided maze file for analysis.
  * Maze default size is set to 16x16 cells. Functions in Maze class are designed
  * to manipulate and set maze characteristics in mouse simulator. Outputs are mostly 
  * to simulator API. \n
@@ -33,7 +33,7 @@ class Maze
 		Maze();
 		
 		/** @brief Destructor for Maze class */
-		~Maze();
+		~Maze(){}
 		
 		/** @brief Member functions for Maze class */
 		bool isWall(int x, int y, char direction);
@@ -47,12 +47,11 @@ class Maze
 		bool isCellValid(int x, int y);
 		unsigned char getValue(int x, int y);
 		void printMaze();
-
 	
 		/** @brief Public Attributes for Maze class */
 		/** @brief The width and height of the maze is preset to 16x16 */
-		static const int WIDTH  = 16;
-		static const int HEIGHT = 16;
+		int WIDTH  = 16;
+		int HEIGHT = 16;
 		
 		/** @brief The x and y positions of the possible goal cells.
          * @details Position of the goal cells is determine based on the width and height of the maze file loaded.

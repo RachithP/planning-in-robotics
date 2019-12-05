@@ -5,19 +5,25 @@
 #include "../API/api.h"
 #include "../Direction/direction.h"
 
-/** @brief Maze class constructor implementation
-	* @details Set the default maze structure with boundary filled with walls.
-    * This establishes a perimeter around the maze area. This area will be populated
-    * by maze walls as the maze feature runs. Walls are set in the North, East, South,
-    * and West directions.
+/** 
+    * @brief    Maze class constructor implementation
+	* @details  Set the default maze structure with boundary filled with walls.
+    *           This establishes a perimeter around the maze area. This area will be populated
+    *           by maze walls as the maze feature runs. Walls are set in the North, East, South,
+    *           and West directions. Array is initially setall to 0.
 */
 fp::Maze::Maze()
 {
+	//! Read Maze Width and height from the simulator
+	WIDTH = API::mazeWidth();
+	HEIGHT = API::mazeHeight();
+	
 	for(int x=0; x<WIDTH; ++x){
 		for(int y=0; y<HEIGHT; ++y){
 			
 			maze_[x][y] = 0; // Default value set to be 0 -> all booleans are non-active
 			
+			// Set wall on the borders
 			if(x==0){
 				setWall(x, y, fp::Direction::WEST);
 			}
@@ -35,14 +41,16 @@ fp::Maze::Maze()
 }
 
 
-/** @brief Reads presence of wall in maze file from given position and current robot heading.
- * @details Function readwall evalutates the provided X and Y coordinate position with current heading for the presence of
- * a wall in each direction and sets it in the maze simulator by calling sim API. \n In each heading direction case, setWall is
- * called to set wall in maze. The 4 cases are North, South, East, or West heading of the simulation mouse/robot.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @param curr_direction current robot's heading direction
- * @return void
+/** 
+    * @brief    Reads presence of wall in maze file from given position and current robot heading.
+    * @details  Function readwall evalutates the provided X and Y coordinate position with current heading for the presence of
+    *           a wall in each direction and sets it in the maze simulator by calling sim API.
+    *           In each heading direction case, setWall is called to set wall in maze. The 4 cases are North, South, East,
+    *           or West heading of the simulation mouse/robot.
+    * @param x  X-location of the cell
+    * @param y  Y-location of the cell
+    * @param curr_direction Current robot heading
+    * @return void
  */
  void fp::Maze::readWall(int x, int y, char curr_direction)
 {
@@ -90,11 +98,14 @@ fp::Maze::Maze()
 	}
 }
 
-/** @brief Function setWall() uses simulator API to set wall in required direction in the simulator. Called during readwall function.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @param direction direction at (x,y) where the wall needs to be set
- * @return void
+/** 
+    * @brief    Function setWall() 
+    * @details  setWall() function uses simulator API to set wall in required direction in the
+    *           simulator. This function is called during readwall operation upon startup of simulator.
+    * @param x  X-location of the cell being evaluated
+    * @param y  Y-location of the cell being evaluated
+    * @param direction  Direction at current point (x,y) where the wall needs to be set
+    * @return void
  */
 void fp::Maze::setWall(int x, int y, char direction)
 {
@@ -106,11 +117,15 @@ void fp::Maze::setWall(int x, int y, char direction)
 	}
 }
 
-/** @brief Function isWall() uses stored wall data in the maze to output boolean indicating presence/absence of wall in a certain direction.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @param direction direction at (x,y) where the wall needs to be checked
- * @return bool true-if wall is present, else false
+/** 
+    * @brief    Function isWall() 
+    * @details  isWall() function used to stored wall data in the maze to output boolean indicating presence/absence
+    *           of wall in a certain direction. This function is used in the bfsalgorithm to determine if the next points
+    *           are accessible. Bool return identifies clear paths from current point.
+    * @param x  X-location of the cell being evaluated
+    * @param y  Y-location of the cell being evaluated
+    * @param direction  Direction from point (x,y) where the wall needs to be checked
+    * @return bool  true-if wall is present, else false
  */
 bool fp::Maze::isWall(int x, int y, char direction)
 {
@@ -124,10 +139,14 @@ bool fp::Maze::isWall(int x, int y, char direction)
 	return false;	
 }
 
-/** @brief Function isCellValid() checks if the coordinates x,y are not out of bounds of the map. Used during algorithm execution.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @return bool true if cell is valid else false
+/** 
+    * @brief    Function isCellValid() 
+    * @details  isCellValid() function checks if the next coordinate (x,y) is valid and is not out of bounds
+    *           of the map. Used during algorithm execution. Coordinate point must be within cell values of 0-16
+    *           in both x and y directions.
+    * @param x  X-location of the cell being evaluated
+    * @param y  Y-location of the cell
+    * @return bool  true if cell is valid; else false
  */
 bool fp::Maze::isCellValid(int x, int y)
 {
@@ -135,11 +154,15 @@ bool fp::Maze::isCellValid(int x, int y)
 	return true;
 }
 
-/** @brief Function setVisited() sets the visited status of the cell x,y. Used during algorithm execution.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @param status true if visited else false
- * @return void
+/** 
+    * @brief    Function setVisited() 
+    * @details  setVisited() function sets the visitation status of the cell at location (x,y).
+    *           Used during algorithm execution to establish cells that have already been visited by the robot.
+    *           This ensures the search algorithm does not re-visit a cell and degrade the tracing performance.
+    * @param x  x-location of the cell
+    * @param y  y-location of the cell
+    * @param status true if visited else false
+    * @return void
  */
 void fp::Maze::setVisited(int x, int y, bool status)
 {
@@ -149,20 +172,27 @@ void fp::Maze::setVisited(int x, int y, bool status)
 	else maze_[x][y] |= 16;
 }
 
-/** @brief Function isVisited() checks the visited status of the cell x,y. Used during algorithm execution.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @return void
+/** 
+    * @brief    Function isVisited() 
+    * @details  isVisited() function checks the visitation status of the cell at location (x,y). Bool return
+    *           identifies if the cell has been visited prior after checking bool array maze_. This function is
+    *           Used during algorithm execution while building search grid and final path.
+    * @param x  X-location of the cell being evaluated
+    * @param y  Y-location of the cell being evaluated
+    * @return bool  true if cell has been visited. false default setting if has not been visited.
  */
 bool fp::Maze::isVisited(int x, int y)
 {
 	return ( (maze_[x][y] & 16) != 0 );
 }
 
-/** @brief Function isGoal() checks whether the input locations is one of the goal locations. Used during algorithm execution.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @return bool True if there x,y is one of the goal locations else false
+/** 
+    * @brief    Function isGoal() 
+    * @details  isGoal() function checks whether the cell at location (x,y) is one of the goal locations.
+    *           Used during algorithm execution to determine if search algorithm has found a goal cell.
+    * @param x  X-location of the cell
+    * @param y  Y-location of the cell
+    * @return bool  True if current (x,y) is one of the goal locations; else false
  */
 bool fp::Maze::isGoal(int x, int y)
 {
@@ -172,19 +202,24 @@ bool fp::Maze::isGoal(int x, int y)
 	return false;
 }
 
-/** @brief Function getValue() returns the value of unsigned char stored in each cell. Used for debugging.
- * @param x x-location of the cell
- * @param y y-location of the cell
- * @return unsigned char value stored at x,y cell
+/** 
+    * @brief    Function getValue() 
+    * @details  getValue() function returns the value of unsigned char stored in cell (x,y).
+    * @param x  X-location of the cell
+    * @param y  Y-location of the cell
+    * @return unsigned char value
  */ 
 unsigned char fp::Maze::getValue(int x, int y)
 {
 	return maze_[x][y];
 }
 
-/** @brief Function colorCenter() colors the centers of the map. In this case, centers are the goal locations.
- * @param color indicates the color chosen for the center
- * @return void
+/** 
+    * @brief    Function colorCenter() 
+    * @details  colorCenter() function colors the centers of the map where it is defined to be the Goal area.
+    *           In this case, the center are defined as the 4 most central cells.
+    * @param color  Char indicates the color chosen for the center cells.
+    * @return void
  */
 void fp::Maze::colorCenter(char color){
 	for(int x=GLX; x<=GUX; ++x){
@@ -194,9 +229,11 @@ void fp::Maze::colorCenter(char color){
 	}
 }
 
-/** @brief Function textCenter() writes texts on the centers of the map. In this case, centers are the goal locations.
- * @param text indicates the text character chosen for the center
- * @return void
+/** 
+    * @brief    Function textCenter() 
+    * @details  textCenter() function writes text on the center cells of the map.
+    * @param text   String indicates the text string to be displayed in the center cells.
+    * @return void
  */
 void fp::Maze::textCenter(std::string text){
 	for(int x=GLX; x<=GUX; ++x){
@@ -206,8 +243,11 @@ void fp::Maze::textCenter(std::string text){
 	}
 }
 
-/** @brief Function printMaze() prints the maze on the terminal for debugging purposes.
- * @return void
+/** 
+    * @brief    Function printMaze() 
+    * @details  printMaze() function runs for loop based on maze width and height to print the maze array
+    *           in the terminal for debugging purposes.
+    * @return void
  */
 void fp::Maze::printMaze()
 {
@@ -217,11 +257,4 @@ void fp::Maze::printMaze()
 		}
 		std::cout << std::endl;
 	}
-}
-
-/** @brief Maze class destructor implementation
-* @details deletes any pointers if created as attributes.
-*/
-fp::Maze::~Maze()
-{
 }
