@@ -7,7 +7,7 @@ Here, I've implemented BFS, DFS, Dijkstra in C++ 14 environment interfacing with
 - Make sure to compile and test the [mms-simulator](https://github.com/mackorone/mms) with sample maps present in resources section of the simulator repo. Also familiarize with instructions on how to compile your own code with the simulator.
 
 ### Doxygen enabled 
-- You can open the `index.html` file present in the doc section of this repo to view the doxygen generated documentation.
+- You can install [doxygen](http://www.doxygen.nl/download.html) and generate the Doxy files required to view the documentation enabled in this code.
 
 
 ### Sample runs
