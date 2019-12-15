@@ -45,7 +45,7 @@ class Algorithm
 		/** @brief Destructor for Algorithm class
 		* @details deletes any pointers if created as attributes.
 		*/
-		~Algorithm(){}
+		virtual ~Algorithm(){}
 		
 	protected:
 /**
